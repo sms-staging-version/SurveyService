@@ -1,7 +1,6 @@
 package com.revature.models;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Survey {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name = "id")
 	private int surveyId;
 	
@@ -33,7 +32,6 @@ public class Survey {
 	private Date dateCreated;
 	
 	@Column(name = "closing_date")
-	@NotNull
 	private Date closingDate;
 	
 	private boolean template;
@@ -41,7 +39,7 @@ public class Survey {
 	private boolean published;
 
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull Date dateCreated,
-			@NotNull Date closingDate, boolean template, boolean published) {
+			Date closingDate, boolean template, boolean published) {
 		super();
 		this.surveyId = surveyId;
 		this.title = title;
@@ -51,9 +49,10 @@ public class Survey {
 		this.template = template;
 		this.published = published;
 	}
-	
+
 	public Survey() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -220,6 +219,6 @@ public class Survey {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", dateCreated="
 				+ dateCreated + ", closingDate=" + closingDate + ", template=" + template + ", published=" + published
 				+ "]";
-	}	
-	
+	}
+
 }
